@@ -21,7 +21,7 @@ export class TimeControlComponent implements OnChanges {
     @Input("ignore")
     ignore: string[] = [];
     @Input("showLabel")
-    showLabel: boolean = false;
+    showLabel: boolean = true;
 
     @Input("interval")
     interval: number = 5;

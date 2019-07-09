@@ -3,7 +3,7 @@ import { OnChanges } from '@angular/core';
 import { SimpleChanges } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
-import { WeFormGroup } from '@webever/angular-helpers';
+import { WeFormGroup } from '../../models';
 
 @Component({
     selector: 'date-control',

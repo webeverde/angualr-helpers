@@ -9,7 +9,9 @@ import { TextareaControlComponent } from './form-controls/textarea-control/texta
 import { TimeControlComponent } from './form-controls/time-control/time-control.component';
 import { ErrorService, FormError } from './error-handle.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
+import { DateControlComponent } from './form-controls/date-control/date-control.component';
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 @NgModule({
   providers: [ErrorService],
   declarations: [
@@ -20,12 +22,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     SelectCheckControlComponent,
     TextareaControlComponent,
     TimeControlComponent,
-    FormError
+    FormError,
+    DateControlComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbDatepickerModule,
+    FontAwesomeModule
   ],
   exports: [
     ErrorBlockComponent,
@@ -35,6 +40,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     SelectCheckControlComponent,
     TextareaControlComponent,
     TimeControlComponent,
+    DateControlComponent,
     FormError
   ]
 })

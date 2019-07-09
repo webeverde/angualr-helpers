@@ -14,10 +14,6 @@ export class InputControlComponent implements OnChanges {
     name: string;
     @Input('label')
     public label: string;
-    @Input('placeholder')
-    public placeholder: string;
-    @Input('type')
-    type: string;
     @Input('helpText')
     helpText: string;
     @Input("messages")
@@ -27,7 +23,7 @@ export class InputControlComponent implements OnChanges {
     @Input("showLabel")
     showLabel: boolean = true;
 
-    value: any;
+    value: boolean;
 
     constructor() {
     }
@@ -36,5 +32,11 @@ export class InputControlComponent implements OnChanges {
         if (changes["form"]) {
             this.value = this.form.controls[this.name].value;
         }
+    }
+
+    onChange($event: boolean){
+        this.value = $event;
+        this.form.controls[this.name].setValue(this.value);
+        this.form.controls[this.name].updateValueAndValidity();
     }
 }

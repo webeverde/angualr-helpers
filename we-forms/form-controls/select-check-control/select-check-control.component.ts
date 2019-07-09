@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnIni
 import { AbstractControl } from '@angular/forms';
 import { WeFormGroup, SelectOption } from '../../models';
 
-class CheckSelectOption implements SelectOption {
+export class CheckSelectOption implements SelectOption {
     label: string;
     value: any;
     disabled?: boolean;
@@ -11,7 +11,8 @@ class CheckSelectOption implements SelectOption {
 
 @Component({
     selector: 'select-check-control',
-    templateUrl: 'select-check-control.html'
+    templateUrl: 'select-check-control.html',
+    styleUrls: ['./select-check-control.scss']
 })
 export class SelectCheckControlComponent implements OnChanges, OnInit {
     @Input('form')
@@ -27,7 +28,7 @@ export class SelectCheckControlComponent implements OnChanges, OnInit {
     @Input("ignore")
     ignore: string[] = [];
     @Input("showLabel")
-    showLabel: boolean = false;
+    showLabel: boolean = true;
     @Input("disabled")
     disabled: boolean = false;
     @Input('options')
@@ -95,7 +96,7 @@ export class SelectCheckControlComponent implements OnChanges, OnInit {
             } else {
                 this.values = [];
             }
-           // this.field.updateValueAndValidity();
+            // this.field.updateValueAndValidity();
             this.updateMap();
         }
         if (changes['options']) {
