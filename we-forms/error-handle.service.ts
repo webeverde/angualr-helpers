@@ -1,6 +1,6 @@
 import { Component, Injectable, Input } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { WeFormGroup } from '../we-forms/models';
+import { WeFormGroup } from './models';
 import { FlashService } from "../flash/flash.service";
 import { HTMLHelpers } from '../html-helpers';
 /**

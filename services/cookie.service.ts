@@ -1,9 +1,11 @@
 
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 
 @Injectable()
 export class CookieService {
-    constructor(private domain: string = ""){}
+    constructor(@Inject("domain") private domain: string = ""){
+
+    }
 
     public setCookie(cname: string, cvalue: any, exdays: number) {
         if (cvalue) {

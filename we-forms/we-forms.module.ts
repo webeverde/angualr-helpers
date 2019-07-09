@@ -7,7 +7,8 @@ import { SelectControlComponent } from './form-controls/select-control/select-co
 import { SelectCheckControlComponent } from './form-controls/select-check-control/select-check-control.component';
 import { TextareaControlComponent } from './form-controls/textarea-control/textarea-control.component';
 import { TimeControlComponent } from './form-controls/time-control/time-control.component';
-import { ErrorService } from '../services/error-handle.service';
+import { ErrorService, FormError } from './error-handle.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   providers: [ErrorService],
@@ -18,10 +19,13 @@ import { ErrorService } from '../services/error-handle.service';
     SelectControlComponent,
     SelectCheckControlComponent,
     TextareaControlComponent,
-    TimeControlComponent
+    TimeControlComponent,
+    FormError
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     ErrorBlockComponent,
@@ -30,7 +34,8 @@ import { ErrorService } from '../services/error-handle.service';
     SelectControlComponent,
     SelectCheckControlComponent,
     TextareaControlComponent,
-    TimeControlComponent
+    TimeControlComponent,
+    FormError
   ]
 })
 export class WeFormsModule { }
