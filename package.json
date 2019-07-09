@@ -5,9 +5,7 @@
     "build": "tsc",
     "test": "ng test"
   },
-  "main": "./dist",
-  "files": ["./dist"],
-  "private": true,
+  "main": "index.js",
   "dependencies": {
     "@angular/animations": "~8.0.1",
     "@angular/common": "~8.0.1",

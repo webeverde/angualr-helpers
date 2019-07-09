@@ -8,7 +8,7 @@ import { SelectControlComponent } from './form-controls/select-control/select-co
 import { SelectCheckControlComponent } from './form-controls/select-check-control/select-check-control.component';
 import { TextareaControlComponent } from './form-controls/textarea-control/textarea-control.component';
 import { TimeControlComponent } from './form-controls/time-control/time-control.component';
-import { ErrorService } from 'services/error-handle.service';
+import { ErrorService } from '../services/error-handle.service';
 let WeFormsModule = class WeFormsModule {
 };
 WeFormsModule = tslib_1.__decorate([
