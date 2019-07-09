@@ -1,0 +1,8 @@
+<!-- Switch to toast https://getbootstrap.com/docs/4.3/components/toasts/ -->
+
+<div class="flash-message-container">
+    <div class="flash-message alert alert-{{m.type}}" *ngFor="let m of messages; index as i">
+        <a (click)="removeMessage(i)" class="close">&times;</a>
+        <div [innerHtml]="m.text"></div>
+    </div>
+</div>

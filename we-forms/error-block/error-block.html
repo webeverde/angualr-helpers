@@ -1,0 +1,3 @@
+<ng-template [ngIf]="control.errors">
+<p class="help-block" *ngFor="let m of renderMessages(control.errors)">{{m | translate}}</p>
+</ng-template>

@@ -1,0 +1,17 @@
+<div class="row form-group list-control" [formGroup]="form" [ngClass]="{'has-error':form.sent && form.controls[name]?.errors}">
+    <div class="col-sm-12">
+        <label for="{{name}}" *ngIf="showLabel">{{label}}</label>
+        <div class="list-control-group" *ngFor="let v of fieldValues; let index=index">
+            <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [ngModel]="fieldValues[index]" (ngModelChange)="onChange(index, $event)"
+                (keyup.enter)="onEnter(index)">
+            <a (click)="remove(index)" class="delete">&times;</a>
+        </div>
+        <div class="list-control-btn">
+            <a (click)="addEntry()" class="btn btn-default btn-sm">
+                {{addButton}}
+            </a>
+        </div>
+        <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore"></error-block>
+        <p class="help-block" *ngIf="helpText">{{helpText}}</p>
+    </div>
+</div>

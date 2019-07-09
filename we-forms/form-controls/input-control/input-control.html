@@ -1,0 +1,19 @@
+<div class="row" [class.form-group]="type != 'checkbox'" [formGroup]="form" [ngClass]="{'has-error':form.sent && form.controls[name]?.errors}">
+    <div class="col-sm-12">
+        <ng-container  *ngIf="type != 'checkbox'">
+            <label for="{{name}}" *ngIf="showLabel">{{label}}</label>
+            <input [type]="type" [formControlName]="name" [placeholder]="placeholder ? placeholder : label" class="form-control">
+        </ng-container>
+        <div *ngIf="type == 'checkbox'" class="checkbox">
+            <label>
+                <input type="checkbox" [formControlName]="name" [placeholder]="label" class="form-control" value="true">
+                <i class="far fa-square"></i><i class="far fa-check-square"></i>
+                <span [innerHtml]="label"></span>
+                <ng-content></ng-content>
+            </label>
+        </div>
+        <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore"></error-block>
+        <p class="help-block" *ngIf="helpText">{{helpText}}</p>
+    </div>
+</div>
+

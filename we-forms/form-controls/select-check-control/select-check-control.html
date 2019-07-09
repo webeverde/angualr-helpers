@@ -1,0 +1,16 @@
+<div class="row form-group" [formGroup]="form" [ngClass]="{'has-error':form.sent && form.controls[name]?.errors}" *ngIf="field">
+    <div class="col-sm-12">
+        <label for="{{name}}" *ngIf="showLabel">{{label}}</label>
+        <div class="row" *ngFor="let o of options">
+            <div class="col-sm-12">
+                <div class="checkbox" [ngClass]="{'disabled':o.disabled, 'checked':map[o.key]}">
+                    <label (click)="toggle(o.value, o.disabled)">
+                        <i class="far fa-square"></i><i class="far fa-check-square"></i>{{o.label}}<ng-content></ng-content>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore"></error-block>
+        <p class="help-block" *ngIf="helpText" [innerHtml]="helpText"></p>
+    </div>
+</div>

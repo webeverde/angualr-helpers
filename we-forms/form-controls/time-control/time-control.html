@@ -1,0 +1,19 @@
+<div class="row form-group" [formGroup]="form" [ngClass]="{'has-error':form.sent && form.controls[name]?.errors}">
+    <div class="col-sm-12">
+        <label for="{{name}}" *ngIf="showLabel">{{label}}</label>
+        <div class="row">
+            <div class="col-sm-6">
+                <select [ngModel]="hours" (ngModelChange)="changeHours($event)" class="form-control" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let option of hourValues" [value]="option">{{option}}</option>
+                </select>
+            </div>
+            <div class="col-sm-6">
+                <select [ngModel]="minutes" (ngModelChange)="changeMinutes($event)" class="form-control" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let option of minuteValues" [value]="option">{{option}}</option>
+                </select>
+            </div>
+        </div>
+        <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore"></error-block>
+        <p class="help-block" *ngIf="helpText">{{helpText}}</p>
+    </div>
+</div>
