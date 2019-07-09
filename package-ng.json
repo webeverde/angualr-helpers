@@ -8,11 +8,11 @@
   },
   "scripts": {
     "test": "ng test",
-    "build": "ng-packagr -p package-ng.json",
+    "build": "ng-packagr -p package.json",
     "tarit": "cd dist && npm pack"
   },
   "main": "index.js",
-  "dependencies": {
+  "peerDependencies": {
     "@angular/common": "~8.0.1",
     "@angular/compiler": "~8.0.1",
     "@angular/core": "~8.0.1",
@@ -47,5 +47,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
+  },
+  "dependencies": {
+    "install": "^0.13.0",
+    "npm": "^6.10.0"
   }
 }

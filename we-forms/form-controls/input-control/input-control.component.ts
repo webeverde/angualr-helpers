@@ -24,7 +24,7 @@ export class InputControlComponent {
     @Input("ignore")
     ignore: string[] = [];
     @Input("showLabel")
-    showLabel: boolean = false;    
+    showLabel: boolean = true;    
 
     constructor() {
     }

@@ -1,7 +1,4 @@
 {
     "files.exclude": {
-        "**/*.d.ts": false,
-        "**/*.js": false,
-        "**/*.js.map": false
     }
 }

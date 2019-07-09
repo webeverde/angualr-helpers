@@ -1,0 +1,19 @@
+<div class="row" [class.form-group]="type != 'checkbox'" [formGroup]="form"
+    [ngClass]="{'has-error':form.sent && form.controls[name]?.errors}">
+    <div class="col-sm-12">
+        <label for="{{name}}" *ngIf="showLabel">{{label}}</label>
+        <div class="input-group">
+            <input type="text" [value]="displayDate| date: 'dd.MM.yyyy'" readonly="true" [disabled]="disabled"
+                class="form-control" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (dateSelect)="onDateSelect($event)"
+                [startDate]="date">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                    <fa-icon icon="calendar"></fa-icon>
+                </button>
+            </div>
+        </div>
+        <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore">
+        </error-block>
+        <p class="help-block" *ngIf="helpText">{{helpText}}</p>
+    </div>
+</div>
