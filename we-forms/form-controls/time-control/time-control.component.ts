@@ -26,6 +26,8 @@ export class TimeControlComponent implements OnChanges {
     @Input("interval")
     interval: number = 5;
 
+    disabled: boolean = false;
+
     field: AbstractControl;
 
     hours: string = "00";
@@ -70,6 +72,7 @@ export class TimeControlComponent implements OnChanges {
                         return;
                     }
                 }
+                this.disabled = this.field.disabled;
             }
             this.hours = "00";
             this.minutes = "00";

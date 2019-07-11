@@ -2,11 +2,11 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { WeFormGroup } from '../../models';
 
 @Component({
-    selector: 'input-control',
-    templateUrl: 'input-control.html',
-    styleUrls: ['./input-control.scss']
+    selector: 'checkbox-control',
+    templateUrl: 'checkbox-control.html',
+    styleUrls: ['./checkbox-control.scss']
 })
-export class InputControlComponent implements OnChanges {
+export class CheckboxControlComponent implements OnChanges {
 
     @Input('form')
     form: WeFormGroup;

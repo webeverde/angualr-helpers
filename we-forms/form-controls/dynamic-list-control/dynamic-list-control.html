@@ -12,6 +12,6 @@
             </a>
         </div>
         <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore"></error-block>
-        <p class="help-block" *ngIf="helpText">{{helpText}}</p>
+        <small class="text-muted" *ngIf="helpText">{{helpText}}</small>
     </div>
 </div>

@@ -12,6 +12,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DateControlComponent } from './form-controls/date-control/date-control.component';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { CheckboxControlComponent } from './form-controls/checkbox-control/checkbox-control.component';
+import { StaticTextControlComponent } from './form-controls/static-text-control/static-text-control.component';
 @NgModule({
   providers: [ErrorService],
   declarations: [
@@ -24,6 +26,8 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     TimeControlComponent,
     FormError,
     DateControlComponent,
+    CheckboxControlComponent,
+    StaticTextControlComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +45,9 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     TextareaControlComponent,
     TimeControlComponent,
     DateControlComponent,
-    FormError
+    FormError,
+    CheckboxControlComponent,
+    StaticTextControlComponent
   ]
 })
 export class WeFormsModule { }

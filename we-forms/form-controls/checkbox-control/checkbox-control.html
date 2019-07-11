@@ -1,18 +1,12 @@
-<div class="row" [class.form-group]="type != 'checkbox'" [formGroup]="form"
-    [ngClass]="{'has-error':form.sent && form.controls[name]?.errors}">
-    <div class="col-sm-12">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" [ngModel]="value" (ngModelChange)="onChange($event)"
-                    [ngModelOptions]="{standalone: true}" [placeholder]="label" class="form-control" value="true">
-                <fa-icon icon="square" *ngIf="!value"></fa-icon>
-                <fa-icon icon="check-square" *ngIf="value"></fa-icon>
-                <span [innerHtml]="label"></span>
-                <ng-content></ng-content>
-            </label>
-        </div>
-        <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore">
-        </error-block>
-        <p class="help-block" *ngIf="helpText">{{helpText}}</p>
+<div class="form-group" [formGroup]="form" [ngClass]="{'has-error':form.sent && form.controls[name]?.errors}">
+    <div class="form-check">
+        <input class="form-check-input" [id]="'cb_'+name" type="checkbox" [formControlName]="name" value="true">
+        <label class="form-check-label" [for]="'cb_'+name">
+            <span [innerHtml]="label"></span>
+            <ng-content></ng-content>
+        </label>
     </div>
+    <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore">
+    </error-block>
+    <small class="text-muted" *ngIf="helpText">{{helpText}}</small>
 </div>

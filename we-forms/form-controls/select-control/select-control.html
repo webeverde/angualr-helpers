@@ -1,4 +1,4 @@
-<div class="form-group" [formGroup]="form" [ngClass]="{'has-error':form.sent && form.controls[name]?.errors}">
+<div class="row form-group" [formGroup]="form" [ngClass]="{'has-error':form.sent && form.controls[name]?.errors}">
     <div class="col-sm-12">
         <label for="{{name}}" *ngIf="showLabel">{{label}}</label>
         <select [formControlName]="name" class="form-control">
@@ -6,6 +6,6 @@
             <option *ngFor="let option of options" [ngValue]="option.value">{{option.label}}</option>
         </select>
         <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore"></error-block>
-        <p class="help-block" *ngIf="helpText">{{helpText}}</p>
+        <small class="text-muted" *ngIf="helpText">{{helpText}}</small>
     </div>
 </div>

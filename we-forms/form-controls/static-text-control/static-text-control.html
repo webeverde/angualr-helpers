@@ -1,0 +1,5 @@
+<div class="form-group">
+    <label *ngIf="showLabel">{{label}}</label>
+    <div class="form-control-plaintext"><ng-content></ng-content></div>
+    <small class="text-muted" *ngIf="helpText">{{helpText}}</small>
+</div>

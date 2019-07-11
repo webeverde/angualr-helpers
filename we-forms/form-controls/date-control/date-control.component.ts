@@ -19,8 +19,6 @@ export class DateControlComponent implements OnChanges {
     public label: string;
     @Input('placeholder')
     public placeholder: string;
-    @Input('type')
-    type: string;
     @Input('helpText')
     helpText: string;
     @Input("messages")
@@ -31,8 +29,6 @@ export class DateControlComponent implements OnChanges {
     showLabel: boolean = true;
     @Input("disabled")
     disabled: boolean = false;
-    @Input("readonly")
-    readonly: boolean = false;
 
     field: AbstractControl;
     date: NgbDateStruct;
@@ -45,6 +41,12 @@ export class DateControlComponent implements OnChanges {
             let form: WeFormGroup = changes['form'].currentValue;
             if (form) {
                 this.field = form.controls[this.name];
+                this.field.statusChanges.subscribe({
+                    next: val =>{
+                        this.disabled = this.field.disabled;
+                    }
+                })
+                this.disabled = this.field.disabled;
                 if (this.field.value) {
                     try {
                         this.displayDate = new Date(this.field.value);

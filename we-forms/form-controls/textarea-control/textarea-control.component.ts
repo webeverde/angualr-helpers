@@ -26,8 +26,7 @@ export class TextareaControlComponent {
   @Input('height')
   height: number; // Has no effect so far
   @Input("showLabel")
-  showLabel: boolean = true;    
-
+  showLabel: boolean = true;
 
   constructor() {
   }

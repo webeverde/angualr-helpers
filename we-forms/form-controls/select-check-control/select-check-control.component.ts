@@ -29,8 +29,7 @@ export class SelectCheckControlComponent implements OnChanges, OnInit {
     ignore: string[] = [];
     @Input("showLabel")
     showLabel: boolean = true;
-    @Input("disabled")
-    disabled: boolean = false;
+
     @Input('options')
     public options: CheckSelectOption[];
 
@@ -40,6 +39,7 @@ export class SelectCheckControlComponent implements OnChanges, OnInit {
     @Input('filter')
     public filter: (value: any[], change: any) => any[];
 
+    disabled: boolean = false;
     field: AbstractControl;
     values: any[] = [];
     map: { [key: string]: boolean } = {};
@@ -64,8 +64,10 @@ export class SelectCheckControlComponent implements OnChanges, OnInit {
                         this.values = [this.field.value];
                     }
                     this.updateMap();
+                    this.disabled = this.field.disabled;
                 })
                 this.subscribed = true;
+                this.disabled = this.field.disabled;
                 if (Array.isArray(this.field.value)) {
                     this.values = this.field.value;
                 } else {
@@ -109,7 +111,7 @@ export class SelectCheckControlComponent implements OnChanges, OnInit {
     }
 
     toggle(option: any, disabled: boolean) {
-        if (!disabled) {
+        if (!disabled && !this.disabled) {
             let i = -1;
             if (this.values) {
                 i = this.values.indexOf(option);

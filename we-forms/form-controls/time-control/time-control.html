@@ -3,17 +3,20 @@
         <label for="{{name}}" *ngIf="showLabel">{{label}}</label>
         <div class="row">
             <div class="col-sm-6">
-                <select [ngModel]="hours" (ngModelChange)="changeHours($event)" class="form-control" [ngModelOptions]="{standalone: true}">
+                <select [ngModel]="hours" (ngModelChange)="changeHours($event)" class="form-control"
+                    [ngModelOptions]="{standalone: true}" [disabled]="disabled">
                     <option *ngFor="let option of hourValues" [value]="option">{{option}}</option>
                 </select>
             </div>
             <div class="col-sm-6">
-                <select [ngModel]="minutes" (ngModelChange)="changeMinutes($event)" class="form-control" [ngModelOptions]="{standalone: true}">
+                <select [ngModel]="minutes" (ngModelChange)="changeMinutes($event)" class="form-control"
+                    [ngModelOptions]="{standalone: true}" [disabled]="disabled">
                     <option *ngFor="let option of minuteValues" [value]="option">{{option}}</option>
                 </select>
             </div>
         </div>
-        <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore"></error-block>
-        <p class="help-block" *ngIf="helpText">{{helpText}}</p>
+        <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore">
+        </error-block>
+        <small class="text-muted" *ngIf="helpText">{{helpText}}</small>
     </div>
 </div>

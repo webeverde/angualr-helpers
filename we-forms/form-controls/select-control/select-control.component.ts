@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { WeFormGroup } from '../../models';
-import { } from '../../error-block/error-block.component';
 
 @Component({
   selector: 'select-control',

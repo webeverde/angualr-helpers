@@ -7,4 +7,6 @@ export * from "./form-controls/select-check-control/select-check-control.compone
 export * from "./form-controls/select-control/select-control.component"
 export * from "./form-controls/textarea-control/textarea-control.component"
 export * from "./form-controls/time-control/time-control.component"
+export * from "./form-controls/checkbox-control/checkbox-control.component"
+export * from "./form-controls/static-text-control/static-text-control.component"
 export * from "./error-block/error-block.component"

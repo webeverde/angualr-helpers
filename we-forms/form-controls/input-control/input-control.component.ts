@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { WeFormGroup } from '../../models';
 
 @Component({
@@ -6,7 +6,7 @@ import { WeFormGroup } from '../../models';
     templateUrl: 'input-control.html',
     styleUrls: ['./input-control.scss']
 })
-export class InputControlComponent implements OnChanges {
+export class InputControlComponent {
 
     @Input('form')
     form: WeFormGroup;
@@ -27,14 +27,7 @@ export class InputControlComponent implements OnChanges {
     @Input("showLabel")
     showLabel: boolean = true;
 
-    value: any;
-
     constructor() {
     }
 
-    ngOnChanges(changes: SimpleChanges): void {
-        if (changes["form"]) {
-            this.value = this.form.controls[this.name].value;
-        }
-    }
 }

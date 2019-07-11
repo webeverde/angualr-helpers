@@ -1,8 +1,8 @@
 import { Component, Injectable, Input } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { WeFormGroup } from './models';
-import { FlashService } from "../flash/flash.service";
 import { HTMLHelpers } from '../html-helpers';
+import { FlashService } from '../flash/flash.service';
 /**
  * A value container for errors that are displayed via @FormError
  */

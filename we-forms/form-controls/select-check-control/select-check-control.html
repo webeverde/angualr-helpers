@@ -1,20 +1,15 @@
-<div class="row form-group" [formGroup]="form" [ngClass]="{'has-error':form.sent && form.controls[name]?.errors}"
+<div class="form-group" [formGroup]="form" [ngClass]="{'has-error':form.sent && form.controls[name]?.errors}"
     *ngIf="field">
-    <div class="col-sm-12">
-        <label for="{{name}}" *ngIf="showLabel">{{label}}</label>
-        <div class="row" *ngFor="let o of options">
-            <div class="col-sm-12">
-                <div class="checkbox" [ngClass]="{'disabled':o.disabled, 'checked':map[o.key]}">
-                    <label (click)="toggle(o.value, o.disabled)">
-                        <fa-icon icon="square" *ngIf="!map[o.key]"></fa-icon>
-                        <fa-icon icon="check-square" *ngIf="map[o.key]"></fa-icon>
-                        {{o.label}}<ng-content></ng-content>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore">
-        </error-block>
-        <p class="help-block" *ngIf="helpText" [innerHtml]="helpText"></p>
+    <label for="{{name}}" *ngIf="showLabel">{{label}}</label>
+    <div class="select-check-option" *ngFor="let o of options"
+        [ngClass]="{'text-muted':o.disabled || disabled, 'checked':map[o.key]}">
+        <span (click)="toggle(o.value, o.disabled)">
+            <fa-icon icon="square" *ngIf="!map[o.key]"></fa-icon>
+            <fa-icon icon="check-square" *ngIf="map[o.key]"></fa-icon>
+            {{o.label}}<ng-content></ng-content>
+        </span>
     </div>
+    <error-block *ngIf="form.sent" [control]="form.controls[name]" [messages]="messages" [ignore]="ignore">
+    </error-block>
+    <p class="help-block" *ngIf="helpText" [innerHtml]="helpText"></p>
 </div>

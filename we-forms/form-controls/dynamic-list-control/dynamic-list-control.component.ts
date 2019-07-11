@@ -1,4 +1,4 @@
-import { Component,  Input, OnChanges, SimpleChanges, ElementRef } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ElementRef } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { WeFormGroup } from '../../models';
 
@@ -24,7 +24,7 @@ export class DynamicListControlComponent implements OnChanges {
     ignore: string[] = [];
     @Input("showLabel")
     showLabel: boolean = true;
-    @Input("disabled")
+
     disabled: boolean = false;
 
 
@@ -32,7 +32,7 @@ export class DynamicListControlComponent implements OnChanges {
     values: String[] = [];
     fieldValues: String[] = [];
 
-    constructor( private el: ElementRef) {
+    constructor(private el: ElementRef) {
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -47,15 +47,22 @@ export class DynamicListControlComponent implements OnChanges {
                     } else {
                         this.values = [this.field.value];
                     }
+                    this.field.statusChanges.subscribe({
+                        next: val => {
+                            this.disabled = this.field.disabled;
+                        }
+                    })
+                    this.disabled = this.field.disabled;
                 } else {
                     this.values = [];
                 }
+
                 this.fieldValues = [];
                 this.values.forEach((value, index, array) => {
                     this.fieldValues.push(value);
                 })
                 this.field.updateValueAndValidity();
-            }    
+            }
         }
     }
 
@@ -84,11 +91,11 @@ export class DynamicListControlComponent implements OnChanges {
             this.addEntry();
             setTimeout(() => {
                 let elem = (this.el.nativeElement as HTMLElement).querySelector("input:last") as HTMLElement;
-                if(elem){
+                if (elem) {
                     elem.focus();
                 }
             }, 100);
-            
+
         }
     }
 
